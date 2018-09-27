@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择收货地址</title>
+</head>
+<body>
+	<form action="{:url('Weekth/brand')}" method="post">
+       <table>
+       	       <input type="hidden" name="id" value="{$id}">
+              <tr>
+                <td>收货地址:</td>
+                 <td>
+                    <select name="addres_id">
+                      <?php foreach($res as $k =>$v){?>
+                          <option value="{$v['addres_id']}">{$v['address']}</option>
+                      <?php }?>
+                    </select>
+                 </td>
+              </tr>
+              <tr>
+                   <td><input type="submit" value="确定"></td>
+              </tr>
+        </table>
+        </form>
+</body>
+</html>

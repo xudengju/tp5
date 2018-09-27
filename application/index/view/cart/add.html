@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品添加</title>
+</head>
+           <style type="text/css">
+                    .form-box{
+                    	  width: 350px;
+                    	  height: 500px;
+                    	  /*background: #3CCFFF;*/
+                    	  margin: auto;
+                    	  line-height: 60px;
+                    }
+           </style>
+<body>
+
+        <div class="form-box">
+        	 <h1>商品添加</h1>
+        	<form action="{:url('Cart/add')}" method="post" enctype="multipart/form-data">
+               <table border="1">
+                     <tr>
+                          <td>商品名称:</td>
+                          <td><input type="text" name="goods_name"></td>
+                     </tr>
+                     <tr>
+                           <td>商品logo:</td>
+                           <td><input type="file" name="goods_logo"></td>
+                     </tr>
+                     <tr>
+                           <td>商品数量:</td>
+                           <td>
+                                 <select name="goods_num">
+                                 	<?php for($i=1;$i<100;$i++) { ?>
+                                       <option><?php echo $i ?></option>
+                                       <?php } ?>
+                                 </select>
+                           </td>
+                     </tr>
+                     <tr>
+                             <td>商品价格:</td>
+                             <td><input type="text" name="goods_price"></td>
+                     </tr>
+                     <tr>
+                             <td colspan="2" align="center"><input type="submit" value="添加"></td>
+                     </tr>
+               </table>
+               </form>
+        </div>
+</body>
+</html>

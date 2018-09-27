@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品</title>
+</head>
+        <style type="text/css">
+                .form-box{
+                	 width: 350px;
+                	 height: 500px;
+                	 margin: auto;
+                	
+                }
+        </style>
+<body> 
+          <div class="form-box">
+          	<table border="1"> 
+          		  <tr>
+                      <td>ID</td>
+                      <td>商品名称</td>
+                      <td>商品logo</td>
+                      <td>商品数量</td>
+                      <td>商品价格</td>
+                      <td>操作</td>
+          		  </tr>
+          		<?php foreach($data as $k=>$v){ ?>
+                  <tr>
+                        <td>{$v.goods_id}</td>
+                        <td>{$v.goods_name}</td>
+                        <td><image src="{$v.goods_logo}" width="50" height="50"></td>
+                        <td>{$v.goods_num}</td>
+                        <td>{$v.goods_price}</td>
+                        <td><a href="{:url('xq')}?id={$v.goods_id}">查看详情</a></td>
+                  </tr>
+                   <?php }?>
+          	</table>
+          	
+
+              
+          </div>
+</body>
+</html>

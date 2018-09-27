@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改收货地址</title>
+</head>
+<body>
+         <div>
+             <form action="{:url('Weekth/update')}" method="post">
+                 <table>
+                       <input type="hidden" name="addres_id" value="{$data['addres_id']}">
+                      <tr>
+                            <td>收货地址：</td>
+                            <td>
+                                <textarea name="address">
+                                    {$data['address']}
+                                </textarea>
+                            </td>
+                      </tr>
+                      <tr>
+                            <td><input type="submit" value="修改"></td>
+                      </tr>
+                 </table>
+             </form>
+            
+         </div>
+</body>
+</html>

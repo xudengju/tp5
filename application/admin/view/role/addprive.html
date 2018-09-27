@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>角色管理-有点</title>
+    <base href="__STATIC__/admin/"/>
+    <link rel="stylesheet" type="text/css" href="css/css.css" />
+    <link rel="stylesheet"  href="css/bootstrap.min.css" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="js/page.js" ></script> -->
+</head>
+
+<body>
+<div id="pageAll">
+    <div class="pageTop">
+        <div class="page">
+            <img src="img/coin02.png" /><span><a href="#">首页</a>&nbsp;-&nbsp;-</span>&nbsp;局无色管理->分配权限
+        </div>
+    </div>
+
+    <div class="page">
+        <h2>分配权限--【{$role_data.r_name}】</h2>
+        <!-- user页面样式 -->
+            <!-- user 表格 显示 -->
+        <form action="{:url('Role/addprive_do')}" method="post">
+            <input type="hidden" name="r_id" value="{$role_data.r_id}"/>
+            <div class="conShow">
+                <table border="1" cellspacing="0" cellpadding="0" width="80%">
+                    {foreach name="data" item="y"}
+                    <tr height="40px">
+                        <td>{$y.n_id}</td>
+                        <td  style="text-align: left"><?php echo str_repeat('|--',$y['level']);?><input type="checkbox" name="prive[{$y.p_id}][]" value="{$y.n_id}"/>{$y.n_name}</td>
+                    </tr>
+                    {foreach name="y.son" item="z"}
+                    <tr height="40px">
+                        <td>{$z.n_id}</td>
+                        <td  style="text-align: left"><?php echo str_repeat('|--',$z['level']);?><input type="checkbox" name="prive[{$z.p_id}][]" value="{$z.n_id}"/>{$z.n_name}</td>
+                    </tr>
+                    {/foreach}
+                    {/foreach}
+                </table>
+            </div>
+            <button>提交</button>
+        </form>
+
+            <!-- user 表格 显示 end-->
+        </div>
+
+        <!-- user页面样式end -->
+    </div>
+
+</div>
+
+
+<!-- 删除弹出框 -->
+<!--<div class="banDel">-->
+<!--<div class="delete">-->
+<!--<div class="close">-->
+<!--<input type="hidden" id="n_id" name="n_id" value=""/>-->
+<!--<a><img src="img/shanchu.png" /></a>-->
+<!--</div>-->
+<!--<p class="delP1">你确定要删除此条记录吗？</p>-->
+<!--<p class="delP2">-->
+<!--<a href="javascript:void(0)" class="ok yes">确定</a><a class="ok no">取消</a>-->
+<!--</p>-->
+<!--</div>-->
+<!--</div>-->
+<!-- 删除弹出框  end-->
+</body>
+
+<!--<script type="text/javascript">-->
+<!--// 广告弹出框-->
+<!--$(".delban").click(function(){-->
+<!--var id=$(this).attr('id');-->
+<!--$('#n_id').val(id);-->
+<!--$(".banDel").show();-->
+<!--});-->
+<!--$(".close").click(function(){-->
+<!--$(".banDel").hide();-->
+<!--});-->
+<!--$(".no").click(function(){-->
+<!--$(".banDel").hide();-->
+<!--});-->
+<!--// 广告弹出框 end-->
+<!--</script>-->
+</html>

@@ -1,0 +1,55 @@
+<table width="100%" id="attrTable">
+    <tbody>
+    {foreach name="data" item="vo"}
+    {if condition="$vo.attr_type eq 1 and $vo.attr_input_type eq 1"}
+    <tr><td class="label">{$vo.attr_name}</td>
+        <td><input type="hidden" name="attr_id_list[]" value="3">
+            <input name="attr_value_list[]" type="text" value="" size="40">
+            <input type="hidden" name="attr_price_list[]" value="0">
+        </td>
+    </tr>
+    {/if}
+    {if condition="$vo.attr_type eq 1 and $vo.attr_input_type eq 2"}
+    <tr>
+        <td class="label">{$vo.attr_name}</td>
+        <td><input type="hidden" name="attr_id_list[]" value="7">
+            <select name="attr_value_list[]">
+                <option value="">请选择...</option>
+               {if condition="$vo.values"}
+                {foreach $vo.values as $v}
+                <option value="{$v}">{$v}</option>
+                {/foreach}
+                {/if}
+            </select>
+            <input type="hidden" name="attr_price_list[]" value="0">
+        </td>
+    </tr>
+    {/if}
+    {if condition="$vo.attr_type eq 2 and $vo.attr_input_type eq 2"}
+    <tr>
+        <td class="label">
+            <a href="javascript:;" onclick="addSpec(this)">[+]</a>{$vo.attr_name}</td>
+        <td><input type="hidden" name="attr_id_list[]" value="1">
+            <select name="attr_value_list[]">
+                <option value="">请选择...</option>
+                {if condition="$vo.values"}
+                {foreach $vo.values as $v}
+                <option value="{$v}">{$v}</option>
+                {/foreach}
+                {/if}
+            </select>属性价格<input type="text" name="attr_price_list[]" value="" size="5" maxlength="10">
+         </td>
+    </tr>
+    {/if}
+    {if condition="$vo.attr_type eq 2 and $vo.attr_input_type eq 1"}
+    <tr>
+        <td class="label">{$vo.attr_name}</td>
+        <td><input type="hidden" name="attr_id_list[]" value="9">
+            <input name="attr_value_list[]" type="text" value="" size="40">
+            <input type="hidden" name="attr_price_list[]" value="0">
+        </td>
+    </tr>
+    {/if}
+    {/foreach}
+    </tbody>
+</table>

@@ -1,0 +1,44 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:86:"H:\phpstudy\PHPTutorial\WWW\tp5.0\public/../application/index\view\goods\cartshow.html";i:1536546774;}*/ ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style type="text/css">
+            .form-box{
+            	width: 400px;
+            	height: 500px;
+            	  margin:auto;
+            }   
+
+            .form-box td{
+            	border-bottom:1px solid #ccc; 
+            }
+</style>
+<body>
+       <div class="form-box">
+              <table>
+                         <tr>
+                             <td>商品名称</td>
+                             <td>商品logo</td>
+                             <td>购买数量</td>
+                             <td>商品总价格</td>
+                            <td>操作</td>
+                         </tr>
+                         <?php foreach($data as $k=>$v){ ?>
+                               <tr>
+                                     <td><input type="checkbox" name="dx"></td>
+                                     <td><?php echo $v['goods_name']?></td>
+                                     <td><image src="<?php echo $v['goods_logo']?>" width="50"height="50"></td>
+                                     <td><?php echo $v['order_num']?></td>
+                                     <td><?php echo $v['order_price']?></td>
+                                     <td><a href="<?php echo url('del'); ?>?order_id=<?php echo $v['order_id']?>">删除</a></td>
+                               </tr>
+                         <?php }?>
+                         	<a href="">去结算</a>
+              </table>
+
+       </div>
+</body>
+</html>

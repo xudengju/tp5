@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抽取学生</title>
+</head>
+         <style type="text/css">
+                  button{
+                      margin-left: 100px;
+                  }
+         </style>
+<body>
+        <center>
+           <h1>抽取学生</h1>
+           <hr>
+            <a href="{:url('cq')}?msg=1"><button>抽取一位</button></a>
+            <a href="{:url('cq')}?msg=2"><button>抽取二位</button></a>
+            <a href="{:url('cq')}?msg=3"><button>抽取三位</button></a>
+          <table border="1">
+               <tr>
+                   <td>学号</td>
+                   <td>姓名</td>
+                   <td>电话</td>
+                   <td>qq</td>
+                   <td>提问次数</td>
+               </tr>
+              <?php foreach($data as $k=>$v){ ?>
+                <tr>
+                    <td>{$v['student_xh']}</td>
+                    <td>{$v['student_name']}</td>
+                    <td>{$v['student_tel']}</td>
+                    <td>{$v['qq']}</td>
+                    <td>{$v['tw_num']}</td>
+                </tr>
+              <?php }?>
+          </table>
+        </center>
+</body>
+</html>
